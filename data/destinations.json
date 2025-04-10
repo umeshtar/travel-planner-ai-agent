@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Rishikesh",
+    "tags": [
+      "adventure",
+      "nature",
+      "spiritual"
+    ],
+    "budget_level": "low",
+    "description": "A peaceful town on the Ganges, popular for yoga and river rafting."
+  },
+  {
+    "name": "Jaipur",
+    "tags": [
+      "culture",
+      "history",
+      "architecture"
+    ],
+    "budget_level": "medium",
+    "description": "The Pink City known for forts, palaces, and vibrant markets."
+  },
+  {
+    "name": "Goa",
+    "tags": [
+      "beach",
+      "party",
+      "relaxation"
+    ],
+    "budget_level": "medium",
+    "description": "India’s top beach destination with lively nightlife and culture."
+  },
+  {
+    "name": "Manali",
+    "tags": [
+      "snow",
+      "nature",
+      "adventure"
+    ],
+    "budget_level": "medium",
+    "description": "A hill station in Himachal famous for scenic views and snow sports."
+  },
+  {
+    "name": "Varanasi",
+    "tags": [
+      "spiritual",
+      "culture",
+      "history"
+    ],
+    "budget_level": "low",
+    "description": "One of the world’s oldest cities, sacred to Hindus and full of rituals."
+  },
+  {
+    "name": "Udaipur",
+    "tags": [
+      "romantic",
+      "culture",
+      "lakes"
+    ],
+    "budget_level": "medium",
+    "description": "Known as the City of Lakes, with stunning palaces and boat rides."
+  },
+  {
+    "name": "Ladakh",
+    "tags": [
+      "adventure",
+      "mountains",
+      "road-trip"
+    ],
+    "budget_level": "high",
+    "description": "High-altitude desert region known for rugged landscapes and biking."
+  }
+]
