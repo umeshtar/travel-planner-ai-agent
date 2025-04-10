@@ -2,6 +2,12 @@ import re
 
 from agent.state import AgentState
 
+SEASONAL_TAGS = {
+    'winter': ['nature'],
+    'summer': ['beach', 'snow', 'mountains'],
+    'monsoon': [''],
+    'spring': ['nature'],
+}
 INTEREST_TAGS = {"culture", "food", "adventure", "nature", "spiritual", "relaxation", "cold", "winter", "summer", "monsoon"}
 BUDGET_LEVELS = {
     'luxury': 'high',
@@ -25,6 +31,8 @@ def extract_preferences(state: AgentState):
     duration = 3
     budget_level = 'medium'
     interests = {'culture'}
+
+    # Get message
     if state.history:
         # Get Latest User Message (Luckily Last One)
         for h in state.history[::-1]:
@@ -48,6 +56,7 @@ def extract_preferences(state: AgentState):
     # Fetch interests
     interests = {i for i in INTEREST_TAGS if i in msg} or interests
 
+    # Update State
     state.preferences = {
         "duration": duration,
         "budget_level": budget_level,
@@ -55,14 +64,3 @@ def extract_preferences(state: AgentState):
     }
     return state
 
-
-# Helper Functions
-def get_user_prompt(history):
-    if not history:
-        return ''
-
-    # Get Latest User Message (Luckily Last One)
-    for h in history[::-1]:
-        if h.get('role', '') == 'user':
-            return h.get('message', '').lower()
-    return ''
