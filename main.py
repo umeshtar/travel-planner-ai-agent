@@ -7,7 +7,7 @@ initial_state = AgentState(
     history=[
         {
             'role': 'user',
-            'message': 'I want a 3-day trip focused on adventure',
+            'message': 'I want to go for a vacation for 4 to 5 days, I like snow and cold environments.',
         }
     ]
 )
