@@ -104,6 +104,16 @@ BUDGET_TAGS = [
 
 @handle_node_errors
 def extract_preferences(state: AgentState) -> AgentState:
+    """
+        Extracts user travel preferences such as duration, budget level, and interests
+        from the most recent message in the conversation history. This is the entry point
+        for parsing a new user's input.
+
+        Flow:
+            - Uses regex to detect number of days or keywords like 'weekend'.
+            - Applies fuzzy matching to infer budget and interests.
+            - Uses a spell checker to fix input typos before parsing.
+    """
     if state.preferences:
         return state
 

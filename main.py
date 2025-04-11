@@ -5,6 +5,7 @@ from agent.state import AgentState
 
 
 def print_itinerary(itinerary: dict):
+    """ Pretty prints a day-wise travel itinerary to the console. """
     print(f"\n🧳 Your {itinerary['duration']}-day itinerary for {itinerary['destination']}:\n")
     for day in itinerary['days']:
         print(f"Day {day['day']}:")

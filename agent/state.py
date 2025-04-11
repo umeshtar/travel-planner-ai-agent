@@ -5,6 +5,19 @@ from typing import Dict, Any, List, Optional
 
 @dataclass
 class AgentState:
+    """
+        Represents the full state of the Travel Planner AI Agent at any point
+        during the conversation.
+
+        Attributes:
+            preferences (dict): Extracted user preferences such as duration, interests, and budget.
+            destinations (list): Top matched destinations based on preferences.
+            selected_destination (dict): The destination selected by the agent for planning.
+            itinerary (dict): The full itinerary including destination, duration, and day-wise activities.
+            history (list): A conversation history of user and agent messages.
+            is_followup (bool): Flag to determine if the current input is a follow-up.
+            print_itinerary (bool): Controls whether the itinerary should be printed in the CLI.
+    """
     preferences: Dict[str, Any] = field(default_factory=dict)
     destinations: List[Dict[str, Any]] = field(default_factory=list)
     selected_destination: Dict[str, Any] = field(default_factory=dict)
@@ -12,8 +25,6 @@ class AgentState:
     history: List[Dict[str, str]] = field(default_factory=list)
     is_followup: Optional[bool] = False
     print_itinerary: Optional[bool] = True
-    exit_chat: Optional[bool] = True
-
 
 # Initial State
 # AgentState(

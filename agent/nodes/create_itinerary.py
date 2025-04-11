@@ -125,6 +125,21 @@ GENERAL_ACTIVITIES = [
 
 @handle_node_errors
 def create_itinerary(state: AgentState) -> AgentState:
+    """
+        Generates a day-wise travel itinerary for the selected destination
+        based on the user's interests and trip duration.
+
+        Logic:
+        - Combines user preferences with destination tags to prioritize activity types.
+        - Randomly selects up to 5 activities per tag to maintain diversity.
+        - Distributes 2 activities per day, using a combination of interest-based and general activities.
+        - Ensures arrival is added to day 1 and departure to the last day if possible.
+        - Avoids infinite loops and checks activity limits to prevent overplanning.
+
+        Fallbacks:
+        - If not enough total activities for the duration, it suggests the user reduce the number of days.
+        - If `selected_destination` or `preferences` are missing, skips execution safely.
+    """
     if not state.preferences:
         return state
 
@@ -156,12 +171,12 @@ def create_itinerary(state: AgentState) -> AgentState:
         if day == 1:
             activities.append(f'Arrival in {destination}')
 
-        # recur_limit = RECUR_LIMIT_CHECK
+        recur_limit = RECUR_LIMIT_CHECK
         while True:
-            # recur_limit -= 1
-            # if recur_limit == 0:
-            #     state.history.append({'role': 'agent', 'message': 'Something Went Wrong at our end, try again later'})
-            #     return state
+            recur_limit -= 1
+            if recur_limit == 0:
+                state.history.append({'role': 'agent', 'message': 'Something Went Wrong at our end, try again later'})
+                return state
 
             if len(activities) == 2 or (len(activities) == 1 and day == duration):
                 break

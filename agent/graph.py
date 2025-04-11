@@ -9,12 +9,32 @@ from agent.state import AgentState
 
 
 def entry_router(state: AgentState) -> AgentState:
-    """ Dummy node for making entry point conditional """
+    """
+    Dummy entry node used to dynamically choose between a new flow
+    or follow-up flow based on the current state's is_followup flag.
+    """
     return state
 
 
 # Build graph
 def build_travel_agent():
+    """
+        Constructs and compiles the LangGraph-based workflow for the travel planner agent.
+
+        Nodes:
+            - entry_router: Selects entry path (new or follow-up).
+            - extract_preferences: Extracts trip duration, interests, budget from user input.
+            - find_destinations: Matches destinations based on preferences.
+            - create_itinerary: Builds day-wise plan with activities.
+            - handle_followup: Handles user changes and loops if needed.
+
+        Flow:
+            - New chat: entry_router → extract_preferences → find_destinations → create_itinerary → (followup or END)
+            - Follow-up: entry_router → handle_followup → (extract_preferences or END)
+
+        Returns:
+            RunnableGraph: A compiled graph object ready to invoke.
+    """
     workflow = StateGraph(AgentState)
 
     # Add nodes

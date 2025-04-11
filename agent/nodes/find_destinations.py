@@ -26,6 +26,22 @@ DEFAULT_DESTINATION = {
 
 @handle_node_errors
 def find_destinations(state: AgentState) -> AgentState:
+    """
+        Finds the top matching destinations for a given user based on preferences
+        such as interests, budget level, and trip duration.
+
+        Logic:
+        - Loads all destinations from a JSON file.
+        - Scores each destination based on:
+            - Interest tag overlap
+            - Budget level match
+            - Ideal duration match
+        - Selects the top 3 destinations with the highest scores.
+        - Sets the best one as the selected destination.
+
+        If no match is found, falls back to a default destination and
+        adds a message in the history.
+    """
     if not state.preferences:
         return state
     scored_destinations = []

@@ -52,7 +52,6 @@ SUCCESS_AND_UPDATE_MESSAGES = [
     "Noted your changes – rebuilding the itinerary.",
     "Updating everything based on your feedback!"
 ]
-
 SUCCESS_ONLY_MESSAGES = [
     "Glad you like it! Have a great trip!",
     "Awesome! Wishing you a memorable journey!",
@@ -65,7 +64,6 @@ SUCCESS_ONLY_MESSAGES = [
     "Thanks! The itinerary is ready for your trip.",
     "Enjoy your journey – all the best!"
 ]
-
 UPDATE_ONLY_MESSAGES = [
     "Sure! Let me update your plan now.",
     "Absolutely – making the changes now.",
@@ -78,7 +76,6 @@ UPDATE_ONLY_MESSAGES = [
     "Alright! We’ll revise it for you.",
     "Yes! Modifying your trip as asked."
 ]
-
 CLARIFY_MESSAGES = [
     "I didn’t quite get that – could you clarify?",
     "Hmm, I’m not sure what you mean. Can you rephrase?",
@@ -95,6 +92,23 @@ CLARIFY_MESSAGES = [
 
 @handle_node_errors
 def handle_followup(state: AgentState) -> AgentState:
+    """
+        Handles user follow-up messages to modify their existing travel plan.
+
+        This function parses the user's feedback and updates preferences such as:
+        - Duration changes (e.g., "make it shorter", "add more days")
+        - Interests (e.g., "add adventure", "include beach")
+        - Budget updates (e.g., "tight budget", "more affordable")
+
+        It also detects if the user has confirmed satisfaction with the plan
+        and sets flags to either reprocess or end the conversation.
+
+        Decision Outcomes:
+        - ✅ `is_update=True` → Preferences updated, run graph again.
+        - ✅ `is_success=True` → User liked the current plan (with or without updates).
+        - ❌ Otherwise → Asks for clarification.
+    """
+
     if not state.preferences:
         return state
 

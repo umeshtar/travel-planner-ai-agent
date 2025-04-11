@@ -1,3 +1,15 @@
+"""
+tests.py
+
+Unit tests for the core node functions of the Travel Planner AI Agent.
+
+Covers:
+- Preference extraction from user prompts.
+- Destination matching based on preferences.
+- Day-wise itinerary generation.
+- Follow-up handling for user changes or confirmations.
+"""
+
 from agent.nodes.create_itinerary import create_itinerary
 from agent.nodes.extract_preferences import extract_preferences
 from agent.nodes.find_destinations import find_destinations
@@ -6,6 +18,11 @@ from agent.state import AgentState
 
 
 def test_extract_preferences():
+    """
+        Test the extract_preferences node:
+        - Validates duration, budget level, and interest extraction from realistic user prompts.
+        - Checks for fuzzy spell correction and weekend/week keyword interpretation.
+    """
     state = AgentState(
         history=[{"role": "user", "message": "I want a 5-day spiritual trip, not too expensive"}]
     )
@@ -28,6 +45,11 @@ def test_extract_preferences():
 
 
 def test_find_destinations():
+    """
+        Test the find_destinations node:
+        - Ensures that the top match is selected based on preferences.
+        - Validates the type and structure of the resulting destinations list.
+    """
     state = AgentState(preferences={
         "duration": 4,
         "budget_level": "medium",
@@ -43,6 +65,11 @@ def test_find_destinations():
 
 
 def test_create_itinerary():
+    """
+        Test the create_itinerary node:
+        - Validates that an itinerary is generated for the given preferences and destination.
+        - Ensures the correct number of days and destination name are included.
+    """
     state = AgentState(
         preferences={
             "duration": 3,
@@ -58,6 +85,11 @@ def test_create_itinerary():
 
 
 def test_handle_followup_interest_addition():
+    """
+        Test follow-up handling when user wants to add an interest.
+        - Checks if new interest is appended to preferences.
+        - Ensures is_followup is correctly reset.
+    """
     state = AgentState(
         preferences={"duration": 3, "interests": ["nature"]},
         history=[{"role": "user", "message": "Add some adventure too"}],
@@ -70,6 +102,11 @@ def test_handle_followup_interest_addition():
 
 
 def test_handle_followup_duration_change():
+    """
+        Test follow-up handling when the user changes trip duration or is unclear.
+        - Validates successful update of duration.
+        - Also checks for fallback when no clear instructions are detected.
+    """
     state = AgentState(
         preferences={"duration": 4, "interests": ["culture"]},
         history=[{"role": "user", "message": "Can we do 2 days instead?"}],
