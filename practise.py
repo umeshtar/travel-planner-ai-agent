@@ -1,5 +1,6 @@
 import itertools
 import random
+from difflib import get_close_matches
 from random import choice
 
 print({'5'} or {'1'})
@@ -77,6 +78,12 @@ destinations_data = generate_destinations(indian_cities, 80)
 from pathlib import Path
 
 # Save to a JSON file
-output_path = Path("data/indian_destinations.json")
-with open(output_path, "w", encoding="utf-8") as f:
-    json.dump(destinations_data, f, indent=2)
+# output_path = Path("data/indian_destinations.json")
+# with open(output_path, "w", encoding="utf-8") as f:
+#     json.dump(destinations_data, f, indent=2)
+
+print(get_close_matches('not luxury', ['budget', 'luxury', 'cheap', 'expensive', 'not expensive'], n=1))
+print(get_close_matches('weekend', 'plan    my weekend       trip     '.split(' '), n=1))
+print(get_close_matches('luxury', 'I want a weeked naturl trip, at low budgt'.split(' '), n=1))
+print(get_close_matches('expensive', 'I want a weeked naturl trip, at low budgt'.split(' '), n=1))
+print(get_close_matches('save money', 'I want a weeked naturl trip, at money expensive'.split(' '), n=1))

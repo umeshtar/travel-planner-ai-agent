@@ -2,33 +2,43 @@ import json
 from pathlib import Path
 
 from agent.state import AgentState
-from agent.utils.handle_node_errors import handle_node_errors
+from agent.utils import handle_node_errors
 
 DEFAULT_DESTINATION = {
     "name": "Rishikesh",
     "country": "India",
-    "tags": ["adventure", "nature", "spiritual"],
-    "budget_level": "low",
-    "ideal_duration": [2, 5],
-    "best_seasons": ["spring", "winter"]
+    "tags": [
+        "beach",
+        "culture"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+        2,
+        6
+    ],
+    "best_seasons": [
+        "winter",
+        "summer",
+        "fall"
+    ]
 }
-
-NAMED_DESTINATIONS = []
 
 
 @handle_node_errors
-def find_destinations(state: AgentState)-> AgentState:
+def find_destinations(state: AgentState) -> AgentState:
+    if not state.preferences:
+        return state
     scored_destinations = []
 
-    prefer_duration = state.preferences.get('duration', 3)
-    prefer_budget_level = state.preferences.get('budget_level', 'medium')
-    prefer_interests = state.preferences.get('interests', ['culture'])
+    prefer_duration = state.preferences.get('duration', 0)
+    prefer_budget_level = state.preferences.get('budget_level', '')
+    prefer_interests = state.preferences.get('interests', [])
 
     with open(Path(__file__).resolve().parent.parent.parent / 'data' / 'destinations.json', "r") as f:
         data = json.load(f)
 
     if not data:
-        state.history.append({'role': 'agent', 'message': 'No match found, however I have an option'})
+        state.history.append({'role': 'agent', 'message': 'No match found, however I have an suggestion'})
         state.selected_destination = DEFAULT_DESTINATION
         return state
 
@@ -54,7 +64,7 @@ def find_destinations(state: AgentState)-> AgentState:
             scored_destinations.append((match_score, d))
 
     if not scored_destinations:
-        state.history.append({'role': 'agent', 'message': 'No match found, however I have an option'})
+        state.history.append({'role': 'agent', 'message': 'No match found, however I have an suggestion'})
         state.selected_destination = DEFAULT_DESTINATION
         return state
 

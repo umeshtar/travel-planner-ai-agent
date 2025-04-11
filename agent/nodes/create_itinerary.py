@@ -1,6 +1,6 @@
 import random
 from agent.state import AgentState
-from agent.utils.handle_node_errors import handle_node_errors
+from agent.utils import handle_node_errors
 
 RECUR_LIMIT_CHECK = 100
 
@@ -49,7 +49,7 @@ ACTIVITY_MAPPING = {
     ],
     "relaxation": [
         "Enjoy spa or wellness therapy",
-        "Take a leisure walk along the beach/lake",
+        "Take a leisure walk along the beach or lake",
         "Sip coffee with a view",
         "Read or journal in a peaceful cafe"
     ],
@@ -70,6 +70,42 @@ ACTIVITY_MAPPING = {
         "Try snowboarding or skiing",
         "Snow trek with a guide",
         "Hot drink in a hillside cafe"
+    ],
+    "beach": [
+        "Relax on a sunny beach",
+        "Try water sports like snorkeling or jet skiing",
+        "Beach volleyball or frisbee",
+        "Enjoy seafood by the shore"
+    ],
+    "road-trip": [
+        "Embark on a scenic drive through nearby countryside",
+        "Stop at roadside viewpoints and cafes",
+        "Create a custom travel playlist",
+        "Explore hidden villages off the highway"
+    ],
+    "winter": [
+        "Go ice skating or skiing",
+        "Visit winter markets or snow festivals",
+        "Take a cozy ride through snowy landscapes",
+        "Enjoy bonfire evenings"
+    ],
+    "summer": [
+        "Take a beachside walk at sunrise",
+        "Visit a waterpark or go swimming",
+        "Enjoy cold desserts and drinks",
+        "Try open-air yoga or fitness activities"
+    ],
+    "monsoon": [
+        "Walk through lush green trails after rain",
+        "Visit waterfalls at their peak",
+        "Enjoy hot snacks in a rainy café",
+        "Attend monsoon cultural festivals"
+    ],
+    "mountains": [
+        "Go for a ridge hike with panoramic views",
+        "Camp in the highlands",
+        "Watch the sunrise from a peak",
+        "Visit remote hilltop temples"
     ]
 }
 
@@ -89,17 +125,20 @@ GENERAL_ACTIVITIES = [
 
 @handle_node_errors
 def create_itinerary(state: AgentState) -> AgentState:
-    # if state.is_followup:
-    #     return state
+    if not state.preferences:
+        return state
+
+    if not state.selected_destination:
+        return state
 
     preferences = state.preferences
     selected_destination = state.selected_destination
-    if not selected_destination:
-        return state
 
     destination = selected_destination.get('name')
     duration = preferences.get('duration')
     interests = preferences.get('interests')
+    destination_tags = selected_destination.get('tags', [])
+    interests.extend(destination_tags)
     prefer_activity_map = {k: random.sample(v, min(len(v), 5)) for k, v in ACTIVITY_MAPPING.items() if k in interests}
     general_activities = GENERAL_ACTIVITIES.copy()
 
@@ -121,7 +160,7 @@ def create_itinerary(state: AgentState) -> AgentState:
         while True:
             # recur_limit -= 1
             # if recur_limit == 0:
-            #     state.history.append({'role': 'agent', 'message': 'Something Went Wrong'})
+            #     state.history.append({'role': 'agent', 'message': 'Something Went Wrong at our end, try again later'})
             #     return state
 
             if len(activities) == 2 or (len(activities) == 1 and day == duration):
