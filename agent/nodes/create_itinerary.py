@@ -1,5 +1,6 @@
 import random
 from agent.state import AgentState
+from agent.utils.handle_node_errors import handle_node_errors
 
 RECUR_LIMIT_CHECK = 100
 
@@ -86,7 +87,8 @@ GENERAL_ACTIVITIES = [
 ]
 
 
-def create_itinerary(state: AgentState)-> AgentState:
+@handle_node_errors
+def create_itinerary(state: AgentState) -> AgentState:
     # if state.is_followup:
     #     return state
 
@@ -100,6 +102,12 @@ def create_itinerary(state: AgentState)-> AgentState:
     interests = preferences.get('interests')
     prefer_activity_map = {k: random.sample(v, min(len(v), 5)) for k, v in ACTIVITY_MAPPING.items() if k in interests}
     general_activities = GENERAL_ACTIVITIES.copy()
+
+    activity_limit = len(general_activities) + sum((len(a) for a in prefer_activity_map.values()))
+    if duration * 2 > activity_limit:
+        state.history.append({'role': 'agent', 'message': 'Can not plan this trip, reduce the day or broader your interest'})
+        state.print_itinerary = False
+        return state
 
     days = []
     active_tag = None

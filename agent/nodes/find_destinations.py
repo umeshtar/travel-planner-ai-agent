@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 from agent.state import AgentState
+from agent.utils.handle_node_errors import handle_node_errors
 
 DEFAULT_DESTINATION = {
     "name": "Rishikesh",
@@ -12,7 +13,10 @@ DEFAULT_DESTINATION = {
     "best_seasons": ["spring", "winter"]
 }
 
+NAMED_DESTINATIONS = []
 
+
+@handle_node_errors
 def find_destinations(state: AgentState)-> AgentState:
     scored_destinations = []
 

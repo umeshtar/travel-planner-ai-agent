@@ -1,6 +1,7 @@
 import re
 
 from agent.state import AgentState
+from agent.utils.handle_node_errors import handle_node_errors
 
 SEASONAL_TAGS = {
     'winter': ['nature'],
@@ -23,6 +24,7 @@ BUDGET_LEVELS = {
 }
 
 
+@handle_node_errors
 def extract_preferences(state: AgentState)-> AgentState:
     if state.preferences:
         return state
@@ -38,13 +40,15 @@ def extract_preferences(state: AgentState)-> AgentState:
         # Get Latest User Message (Luckily Last One)
         for h in state.history[::-1]:
             if h.get('role', '') == 'user':
-                msg = h.get('message', '').lower()
+                msg = h.get('message', '').lower().strip()
                 break
 
     # Fetch duration
     match_duration = re.search(r"(\d+)\s*-?\s*(day|days)", msg)
     if match_duration:
         duration = int(match_duration.group(1))
+    elif 'weekend' in msg:
+        duration = 2
     elif 'week' in msg:
         duration = 7
 

@@ -11,6 +11,8 @@ class AgentState:
     itinerary: Dict[str, Any] = field(default_factory=dict)
     history: List[Dict[str, str]] = field(default_factory=list)
     is_followup: Optional[bool] = False
+    print_itinerary: Optional[bool] = True
+    exit_chat: Optional[bool] = True
 
 
 # Initial State

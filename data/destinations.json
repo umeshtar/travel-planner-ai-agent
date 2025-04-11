@@ -2,57 +2,1403 @@
   {
     "name": "Rishikesh",
     "country": "India",
-    "tags": ["adventure", "nature", "spiritual"],
-    "budget_level": "low",
-    "ideal_duration": [2, 5],
-    "best_seasons": ["spring", "winter"]
-  },
-  {
-    "name": "Jaipur",
-    "country": "India",
-    "tags": ["culture", "history", "architecture"],
-    "budget_level": "medium",
-    "ideal_duration": [2, 4],
-    "best_seasons": ["winter"]
-  },
-  {
-    "name": "Goa",
-    "country": "India",
-    "tags": ["beach", "party", "relaxation"],
-    "budget_level": "medium",
-    "ideal_duration": [3, 5],
-    "best_seasons": ["winter"]
+    "tags": [
+      "beach",
+      "culture"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      2,
+      6
+    ],
+    "best_seasons": [
+      "winter",
+      "summer",
+      "fall"
+    ]
   },
   {
     "name": "Manali",
     "country": "India",
-    "tags": ["snow", "nature", "adventure"],
-    "budget_level": "medium",
-    "ideal_duration": [3, 6],
-    "best_seasons": ["winter", "summer"]
+    "tags": [
+      "mountains",
+      "history"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      3,
+      7
+    ],
+    "best_seasons": [
+      "summer",
+      "winter",
+      "fall"
+    ]
   },
   {
-    "name": "Varanasi",
+    "name": "Leh",
     "country": "India",
-    "tags": ["spiritual", "culture", "history"],
-    "budget_level": "low",
-    "ideal_duration": [2, 4],
-    "best_seasons": ["winter"]
+    "tags": [
+      "beach",
+      "relaxation",
+      "spiritual",
+      "mountains"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      4,
+      5
+    ],
+    "best_seasons": [
+      "winter"
+    ]
   },
   {
     "name": "Udaipur",
     "country": "India",
-    "tags": ["romantic", "culture", "lakes"],
-    "budget_level": "medium",
-    "ideal_duration": [2, 4],
-    "best_seasons": ["winter"]
+    "tags": [
+      "mountains",
+      "architecture",
+      "adventure"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      5,
+      6
+    ],
+    "best_seasons": [
+      "fall"
+    ]
   },
   {
-    "name": "Ladakh",
+    "name": "Jaipur",
     "country": "India",
-    "tags": ["adventure", "mountains", "road-trip"],
+    "tags": [
+      "mountains",
+      "spiritual"
+    ],
     "budget_level": "high",
-    "ideal_duration": [5, 8],
-    "best_seasons": ["summer"]
+    "ideal_duration": [
+      4,
+      7
+    ],
+    "best_seasons": [
+      "fall"
+    ]
+  },
+  {
+    "name": "Jaisalmer",
+    "country": "India",
+    "tags": [
+      "history",
+      "relaxation"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      5,
+      6
+    ],
+    "best_seasons": [
+      "spring",
+      "summer"
+    ]
+  },
+  {
+    "name": "Shimla",
+    "country": "India",
+    "tags": [
+      "nature",
+      "romantic"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      3,
+      7
+    ],
+    "best_seasons": [
+      "summer"
+    ]
+  },
+  {
+    "name": "Kullu",
+    "country": "India",
+    "tags": [
+      "history",
+      "cold",
+      "mountains",
+      "beach"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      2,
+      7
+    ],
+    "best_seasons": [
+      "fall"
+    ]
+  },
+  {
+    "name": "Amritsar",
+    "country": "India",
+    "tags": [
+      "architecture",
+      "snow"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      2,
+      3
+    ],
+    "best_seasons": [
+      "summer"
+    ]
+  },
+  {
+    "name": "Dharamshala",
+    "country": "India",
+    "tags": [
+      "adventure",
+      "mountains",
+      "architecture",
+      "road-trip"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      3,
+      4
+    ],
+    "best_seasons": [
+      "winter",
+      "spring",
+      "fall"
+    ]
+  },
+  {
+    "name": "Goa",
+    "country": "India",
+    "tags": [
+      "culture",
+      "romantic",
+      "spiritual",
+      "architecture"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      2,
+      5
+    ],
+    "best_seasons": [
+      "summer",
+      "fall"
+    ]
+  },
+  {
+    "name": "Mumbai",
+    "country": "India",
+    "tags": [
+      "spiritual",
+      "architecture",
+      "adventure",
+      "beach"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      2,
+      5
+    ],
+    "best_seasons": [
+      "spring"
+    ]
+  },
+  {
+    "name": "Pune",
+    "country": "India",
+    "tags": [
+      "architecture",
+      "spiritual",
+      "adventure"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      2,
+      5
+    ],
+    "best_seasons": [
+      "summer",
+      "winter"
+    ]
+  },
+  {
+    "name": "Lonavala",
+    "country": "India",
+    "tags": [
+      "nature",
+      "romantic"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      5,
+      7
+    ],
+    "best_seasons": [
+      "summer",
+      "fall"
+    ]
+  },
+  {
+    "name": "Alibaug",
+    "country": "India",
+    "tags": [
+      "nature",
+      "snow"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      3,
+      6
+    ],
+    "best_seasons": [
+      "summer",
+      "fall"
+    ]
+  },
+  {
+    "name": "Nashik",
+    "country": "India",
+    "tags": [
+      "adventure",
+      "relaxation",
+      "mountains",
+      "romantic"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      2,
+      6
+    ],
+    "best_seasons": [
+      "summer",
+      "spring",
+      "fall"
+    ]
+  },
+  {
+    "name": "Mount Abu",
+    "country": "India",
+    "tags": [
+      "relaxation",
+      "spiritual"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      2,
+      6
+    ],
+    "best_seasons": [
+      "fall",
+      "monsoon",
+      "summer"
+    ]
+  },
+  {
+    "name": "Kodaikanal",
+    "country": "India",
+    "tags": [
+      "history",
+      "road-trip",
+      "adventure",
+      "beach"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      3,
+      4
+    ],
+    "best_seasons": [
+      "fall",
+      "winter",
+      "spring"
+    ]
+  },
+  {
+    "name": "Ooty",
+    "country": "India",
+    "tags": [
+      "romantic",
+      "nature",
+      "snow"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      2,
+      6
+    ],
+    "best_seasons": [
+      "summer",
+      "fall",
+      "spring"
+    ]
+  },
+  {
+    "name": "Mysore",
+    "country": "India",
+    "tags": [
+      "road-trip",
+      "nature",
+      "beach",
+      "adventure"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      3,
+      6
+    ],
+    "best_seasons": [
+      "spring",
+      "monsoon",
+      "summer"
+    ]
+  },
+  {
+    "name": "Hampi",
+    "country": "India",
+    "tags": [
+      "mountains",
+      "architecture"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      2,
+      3
+    ],
+    "best_seasons": [
+      "summer",
+      "fall"
+    ]
+  },
+  {
+    "name": "Chikmagalur",
+    "country": "India",
+    "tags": [
+      "adventure",
+      "cold",
+      "architecture",
+      "romantic"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      2,
+      6
+    ],
+    "best_seasons": [
+      "monsoon",
+      "winter"
+    ]
+  },
+  {
+    "name": "Coorg",
+    "country": "India",
+    "tags": [
+      "spiritual",
+      "cold"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      4,
+      7
+    ],
+    "best_seasons": [
+      "monsoon",
+      "summer",
+      "winter"
+    ]
+  },
+  {
+    "name": "Gokarna",
+    "country": "India",
+    "tags": [
+      "nature",
+      "spiritual"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      2,
+      6
+    ],
+    "best_seasons": [
+      "fall",
+      "spring"
+    ]
+  },
+  {
+    "name": "Varkala",
+    "country": "India",
+    "tags": [
+      "road-trip",
+      "relaxation",
+      "culture"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      2,
+      6
+    ],
+    "best_seasons": [
+      "fall"
+    ]
+  },
+  {
+    "name": "Munnar",
+    "country": "India",
+    "tags": [
+      "nature",
+      "adventure",
+      "beach"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      6,
+      7
+    ],
+    "best_seasons": [
+      "fall",
+      "spring"
+    ]
+  },
+  {
+    "name": "Alleppey",
+    "country": "India",
+    "tags": [
+      "cold",
+      "spiritual",
+      "architecture"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      2,
+      3
+    ],
+    "best_seasons": [
+      "winter",
+      "summer",
+      "fall"
+    ]
+  },
+  {
+    "name": "Thekkady",
+    "country": "India",
+    "tags": [
+      "nature",
+      "cold",
+      "history"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      2,
+      4
+    ],
+    "best_seasons": [
+      "winter",
+      "summer"
+    ]
+  },
+  {
+    "name": "Wayanad",
+    "country": "India",
+    "tags": [
+      "nature",
+      "cold",
+      "relaxation"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      3,
+      6
+    ],
+    "best_seasons": [
+      "winter",
+      "monsoon",
+      "fall"
+    ]
+  },
+  {
+    "name": "Kochi",
+    "country": "India",
+    "tags": [
+      "architecture",
+      "road-trip",
+      "beach"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      2,
+      5
+    ],
+    "best_seasons": [
+      "spring",
+      "monsoon"
+    ]
+  },
+  {
+    "name": "Hyderabad",
+    "country": "India",
+    "tags": [
+      "architecture",
+      "relaxation",
+      "food",
+      "snow"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      3,
+      5
+    ],
+    "best_seasons": [
+      "monsoon",
+      "summer"
+    ]
+  },
+  {
+    "name": "Warangal",
+    "country": "India",
+    "tags": [
+      "romantic",
+      "culture",
+      "history"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      3,
+      4
+    ],
+    "best_seasons": [
+      "monsoon"
+    ]
+  },
+  {
+    "name": "Bangalore",
+    "country": "India",
+    "tags": [
+      "spiritual",
+      "beach"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      5,
+      6
+    ],
+    "best_seasons": [
+      "fall",
+      "monsoon",
+      "summer"
+    ]
+  },
+  {
+    "name": "Chennai",
+    "country": "India",
+    "tags": [
+      "adventure",
+      "mountains",
+      "architecture"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      2,
+      6
+    ],
+    "best_seasons": [
+      "monsoon",
+      "spring"
+    ]
+  },
+  {
+    "name": "Pondicherry",
+    "country": "India",
+    "tags": [
+      "snow",
+      "architecture",
+      "food",
+      "mountains"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      4,
+      5
+    ],
+    "best_seasons": [
+      "monsoon"
+    ]
+  },
+  {
+    "name": "Madurai",
+    "country": "India",
+    "tags": [
+      "architecture",
+      "food",
+      "beach"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      3,
+      5
+    ],
+    "best_seasons": [
+      "fall"
+    ]
+  },
+  {
+    "name": "Rameswaram",
+    "country": "India",
+    "tags": [
+      "adventure",
+      "cold",
+      "spiritual",
+      "culture"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      6,
+      7
+    ],
+    "best_seasons": [
+      "spring",
+      "winter",
+      "fall"
+    ]
+  },
+  {
+    "name": "Tirupati",
+    "country": "India",
+    "tags": [
+      "spiritual",
+      "road-trip",
+      "food"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      3,
+      5
+    ],
+    "best_seasons": [
+      "winter",
+      "fall",
+      "monsoon"
+    ]
+  },
+  {
+    "name": "Vizag",
+    "country": "India",
+    "tags": [
+      "culture",
+      "mountains"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      5,
+      6
+    ],
+    "best_seasons": [
+      "fall",
+      "spring"
+    ]
+  },
+  {
+    "name": "Kolkata",
+    "country": "India",
+    "tags": [
+      "spiritual",
+      "food",
+      "history"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      3,
+      6
+    ],
+    "best_seasons": [
+      "spring",
+      "monsoon"
+    ]
+  },
+  {
+    "name": "Darjeeling",
+    "country": "India",
+    "tags": [
+      "adventure",
+      "architecture",
+      "beach"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      2,
+      5
+    ],
+    "best_seasons": [
+      "monsoon"
+    ]
+  },
+  {
+    "name": "Kalimpong",
+    "country": "India",
+    "tags": [
+      "beach",
+      "history"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      4,
+      5
+    ],
+    "best_seasons": [
+      "monsoon",
+      "summer",
+      "winter"
+    ]
+  },
+  {
+    "name": "Gangtok",
+    "country": "India",
+    "tags": [
+      "romantic",
+      "relaxation",
+      "history"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      4,
+      6
+    ],
+    "best_seasons": [
+      "summer",
+      "fall",
+      "monsoon"
+    ]
+  },
+  {
+    "name": "Shillong",
+    "country": "India",
+    "tags": [
+      "beach",
+      "culture"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      4,
+      7
+    ],
+    "best_seasons": [
+      "summer"
+    ]
+  },
+  {
+    "name": "Kaziranga",
+    "country": "India",
+    "tags": [
+      "adventure",
+      "cold",
+      "food"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      3,
+      6
+    ],
+    "best_seasons": [
+      "summer",
+      "spring"
+    ]
+  },
+  {
+    "name": "Majuli",
+    "country": "India",
+    "tags": [
+      "road-trip",
+      "relaxation",
+      "adventure",
+      "cold"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      4,
+      5
+    ],
+    "best_seasons": [
+      "spring"
+    ]
+  },
+  {
+    "name": "Agartala",
+    "country": "India",
+    "tags": [
+      "spiritual",
+      "romantic"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      4,
+      5
+    ],
+    "best_seasons": [
+      "summer",
+      "spring",
+      "monsoon"
+    ]
+  },
+  {
+    "name": "Itanagar",
+    "country": "India",
+    "tags": [
+      "spiritual",
+      "culture",
+      "romantic"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      5,
+      6
+    ],
+    "best_seasons": [
+      "monsoon",
+      "fall",
+      "spring"
+    ]
+  },
+  {
+    "name": "Aizawl",
+    "country": "India",
+    "tags": [
+      "romantic",
+      "nature",
+      "mountains"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      5,
+      7
+    ],
+    "best_seasons": [
+      "spring",
+      "winter"
+    ]
+  },
+  {
+    "name": "Imphal",
+    "country": "India",
+    "tags": [
+      "cold",
+      "history"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      5,
+      6
+    ],
+    "best_seasons": [
+      "winter",
+      "spring",
+      "summer"
+    ]
+  },
+  {
+    "name": "Patna",
+    "country": "India",
+    "tags": [
+      "nature",
+      "history",
+      "spiritual",
+      "relaxation"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      4,
+      6
+    ],
+    "best_seasons": [
+      "spring"
+    ]
+  },
+  {
+    "name": "Bodh Gaya",
+    "country": "India",
+    "tags": [
+      "food",
+      "nature",
+      "adventure"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      3,
+      4
+    ],
+    "best_seasons": [
+      "fall"
+    ]
+  },
+  {
+    "name": "Rajgir",
+    "country": "India",
+    "tags": [
+      "adventure",
+      "romantic",
+      "snow"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      3,
+      7
+    ],
+    "best_seasons": [
+      "spring",
+      "summer",
+      "winter"
+    ]
+  },
+  {
+    "name": "Nalanda",
+    "country": "India",
+    "tags": [
+      "road-trip",
+      "mountains"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      2,
+      5
+    ],
+    "best_seasons": [
+      "monsoon",
+      "summer",
+      "winter"
+    ]
+  },
+  {
+    "name": "Ranchi",
+    "country": "India",
+    "tags": [
+      "snow",
+      "road-trip",
+      "cold"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      2,
+      5
+    ],
+    "best_seasons": [
+      "fall"
+    ]
+  },
+  {
+    "name": "Deoghar",
+    "country": "India",
+    "tags": [
+      "cold",
+      "romantic",
+      "spiritual"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      4,
+      6
+    ],
+    "best_seasons": [
+      "spring",
+      "winter"
+    ]
+  },
+  {
+    "name": "Bhubaneswar",
+    "country": "India",
+    "tags": [
+      "culture",
+      "cold",
+      "spiritual",
+      "architecture"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      4,
+      7
+    ],
+    "best_seasons": [
+      "winter"
+    ]
+  },
+  {
+    "name": "Puri",
+    "country": "India",
+    "tags": [
+      "food",
+      "road-trip",
+      "cold"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      6,
+      7
+    ],
+    "best_seasons": [
+      "summer"
+    ]
+  },
+  {
+    "name": "Konark",
+    "country": "India",
+    "tags": [
+      "romantic",
+      "cold",
+      "spiritual"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      2,
+      6
+    ],
+    "best_seasons": [
+      "spring",
+      "summer",
+      "monsoon"
+    ]
+  },
+  {
+    "name": "Cuttack",
+    "country": "India",
+    "tags": [
+      "adventure",
+      "romantic",
+      "spiritual"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      3,
+      5
+    ],
+    "best_seasons": [
+      "spring",
+      "summer"
+    ]
+  },
+  {
+    "name": "Jabalpur",
+    "country": "India",
+    "tags": [
+      "relaxation",
+      "snow"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      5,
+      6
+    ],
+    "best_seasons": [
+      "summer",
+      "monsoon"
+    ]
+  },
+  {
+    "name": "Khajuraho",
+    "country": "India",
+    "tags": [
+      "history",
+      "road-trip",
+      "cold",
+      "snow"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      3,
+      6
+    ],
+    "best_seasons": [
+      "spring",
+      "fall"
+    ]
+  },
+  {
+    "name": "Indore",
+    "country": "India",
+    "tags": [
+      "food",
+      "mountains",
+      "spiritual",
+      "road-trip"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      3,
+      4
+    ],
+    "best_seasons": [
+      "fall",
+      "summer"
+    ]
+  },
+  {
+    "name": "Bhopal",
+    "country": "India",
+    "tags": [
+      "relaxation",
+      "architecture"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      6,
+      7
+    ],
+    "best_seasons": [
+      "spring",
+      "summer"
+    ]
+  },
+  {
+    "name": "Gwalior",
+    "country": "India",
+    "tags": [
+      "architecture",
+      "adventure"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      2,
+      6
+    ],
+    "best_seasons": [
+      "fall"
+    ]
+  },
+  {
+    "name": "Ujjain",
+    "country": "India",
+    "tags": [
+      "relaxation",
+      "spiritual"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      2,
+      7
+    ],
+    "best_seasons": [
+      "winter",
+      "fall"
+    ]
+  },
+  {
+    "name": "Nagpur",
+    "country": "India",
+    "tags": [
+      "architecture",
+      "food",
+      "mountains",
+      "cold"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      3,
+      5
+    ],
+    "best_seasons": [
+      "winter",
+      "summer",
+      "fall"
+    ]
+  },
+  {
+    "name": "Aurangabad",
+    "country": "India",
+    "tags": [
+      "history",
+      "culture"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      3,
+      4
+    ],
+    "best_seasons": [
+      "winter",
+      "summer"
+    ]
+  },
+  {
+    "name": "Ajanta",
+    "country": "India",
+    "tags": [
+      "spiritual",
+      "mountains",
+      "romantic"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      2,
+      6
+    ],
+    "best_seasons": [
+      "monsoon",
+      "summer"
+    ]
+  },
+  {
+    "name": "Ellora",
+    "country": "India",
+    "tags": [
+      "nature",
+      "cold",
+      "romantic",
+      "history"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      2,
+      3
+    ],
+    "best_seasons": [
+      "summer",
+      "monsoon",
+      "spring"
+    ]
+  },
+  {
+    "name": "Varanasi",
+    "country": "India",
+    "tags": [
+      "snow",
+      "architecture"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      5,
+      7
+    ],
+    "best_seasons": [
+      "summer",
+      "winter",
+      "monsoon"
+    ]
+  },
+  {
+    "name": "Prayagraj",
+    "country": "India",
+    "tags": [
+      "romantic",
+      "mountains",
+      "architecture"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      4,
+      5
+    ],
+    "best_seasons": [
+      "summer",
+      "monsoon"
+    ]
+  },
+  {
+    "name": "Lucknow",
+    "country": "India",
+    "tags": [
+      "romantic",
+      "beach"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      5,
+      6
+    ],
+    "best_seasons": [
+      "winter",
+      "spring"
+    ]
+  },
+  {
+    "name": "Ayodhya",
+    "country": "India",
+    "tags": [
+      "beach",
+      "romantic"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      5,
+      7
+    ],
+    "best_seasons": [
+      "summer",
+      "winter",
+      "fall"
+    ]
+  },
+  {
+    "name": "Mathura",
+    "country": "India",
+    "tags": [
+      "adventure",
+      "beach"
+    ],
+    "budget_level": "high",
+    "ideal_duration": [
+      2,
+      6
+    ],
+    "best_seasons": [
+      "winter",
+      "summer"
+    ]
+  },
+  {
+    "name": "Vrindavan",
+    "country": "India",
+    "tags": [
+      "adventure",
+      "beach",
+      "history"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      2,
+      4
+    ],
+    "best_seasons": [
+      "summer",
+      "spring",
+      "winter"
+    ]
+  },
+  {
+    "name": "Agra",
+    "country": "India",
+    "tags": [
+      "relaxation",
+      "mountains",
+      "architecture",
+      "adventure"
+    ],
+    "budget_level": "low",
+    "ideal_duration": [
+      4,
+      5
+    ],
+    "best_seasons": [
+      "spring",
+      "winter"
+    ]
+  },
+  {
+    "name": "Delhi",
+    "country": "India",
+    "tags": [
+      "nature",
+      "adventure"
+    ],
+    "budget_level": "medium",
+    "ideal_duration": [
+      3,
+      5
+    ],
+    "best_seasons": [
+      "winter",
+      "fall"
+    ]
   }
 ]
