@@ -26,7 +26,7 @@ A conversational AI agent that helps users plan custom travel itineraries based 
 
 ### 1. Clone the repository
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/umeshtar/travel-planner-ai-agent.git
 cd travel-planner-ai-agent
 ```
 
@@ -69,6 +69,7 @@ All major logic nodes are tested: preference extraction, destination selection, 
 agent/
   ├── state.py                  # AgentState dataclass
   ├── graph.py                  # LangGraph workflow
+  ├── utils.py                  # Utility file for reusuable function
   └── nodes/                    # Individual logic nodes
        ├── extract_preferences.py
        ├── find_destinations.py
