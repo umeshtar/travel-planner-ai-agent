@@ -23,8 +23,9 @@ BUDGET_LEVELS = {
 }
 
 
-def extract_preferences(state: AgentState):
-    # print(f"{state=}")
+def extract_preferences(state: AgentState)-> AgentState:
+    if state.preferences:
+        return state
 
     # Initialize defaults for fallback
     msg = ''

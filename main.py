@@ -12,5 +12,14 @@ initial_state = AgentState(
     ]
 )
 
-final_state = travel_planner_graph.invoke(initial_state)
+follow_up  = travel_planner_graph.invoke(initial_state)
+pprint(follow_up)
+follow_up_state = AgentState(**follow_up)
+
+follow_up_state.history.append({'role': 'user', 'message': 'make it shorter'})
+follow_up_state.is_followup = True
+
+final_state = travel_planner_graph.invoke(follow_up_state)
 pprint(final_state)
+
+

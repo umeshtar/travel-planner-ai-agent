@@ -13,7 +13,7 @@ DEFAULT_DESTINATION = {
 }
 
 
-def find_destinations(state: AgentState):
+def find_destinations(state: AgentState)-> AgentState:
     scored_destinations = []
 
     prefer_duration = state.preferences.get('duration', 3)

@@ -86,7 +86,10 @@ GENERAL_ACTIVITIES = [
 ]
 
 
-def create_itinerary(state: AgentState):
+def create_itinerary(state: AgentState)-> AgentState:
+    # if state.is_followup:
+    #     return state
+
     preferences = state.preferences
     selected_destination = state.selected_destination
     if not selected_destination:
