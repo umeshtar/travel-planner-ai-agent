@@ -8,7 +8,7 @@ def print_itinerary(itinerary: dict):
     """ Pretty prints a day-wise travel itinerary to the console. """
     print(f"\n🧳 Your {itinerary['duration']}-day itinerary for {itinerary['destination']}:\n")
     for day in itinerary['days']:
-        print(f"Day {day['day']}:")
+        print(f"Day {day['day']} (Weather: {day.get('weather', 'N/A')}):")
         for act in day['activities']:
             print(f"  - {act}")
     print()

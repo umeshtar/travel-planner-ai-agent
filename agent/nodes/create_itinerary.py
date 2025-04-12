@@ -1,6 +1,6 @@
 import random
 from agent.state import AgentState
-from agent.utils import handle_node_errors
+from agent.utils import handle_node_errors, get_weather_forecast
 
 RECUR_LIMIT_CHECK = 100
 
@@ -109,6 +109,21 @@ ACTIVITY_MAPPING = {
     ]
 }
 
+WEATHER_ACTIVITY_MAP = {
+    "Clear": ["nature", "adventure", "romantic", "architecture"],
+    "Mainly Clear": ["nature", "culture", "adventure", "romantic"],
+    "Partly Cloudy": ["culture", "architecture", "relaxation", "history"],
+    "Overcast": ["history", "culture", "relaxation"],
+    "Foggy": ["spiritual", "relaxation", "culture"],
+    "Freezing Fog": ["spiritual", "relaxation", "snow"],
+    "Light Drizzle": ["food", "culture", "history"],
+    "Rain": ["food", "indoor", "culture", "history"],
+    "Snow": ["snow", "cold", "spiritual"],
+    "Thunderstorm": ["relaxation", "food"],
+    "Weather unavailable": ["relaxation", "culture", "food"],
+    "Unknown": ["relaxation", "culture", "food"]
+}
+
 GENERAL_ACTIVITIES = [
     "Take a guided city tour to explore local highlights",
     "Enjoy a peaceful morning walk in a nearby park",
@@ -165,12 +180,14 @@ def create_itinerary(state: AgentState) -> AgentState:
 
     days = []
     active_tag = None
+    weather_forecast = get_weather_forecast(destination, duration)
     for day in range(1, duration + 1):
         activities = []
 
         if day == 1:
             activities.append(f'Arrival in {destination}')
 
+        weather = weather_forecast[day - 1]
         recur_limit = RECUR_LIMIT_CHECK
         while True:
             recur_limit -= 1
@@ -178,7 +195,7 @@ def create_itinerary(state: AgentState) -> AgentState:
                 state.history.append({'role': 'agent', 'message': 'Something Went Wrong at our end, try again later'})
                 return state
 
-            if len(activities) == 2 or (len(activities) == 1 and day == duration):
+            if len(activities) == 3 or (len(activities) == 2 and day == duration):
                 break
 
             if not prefer_activity_map:
@@ -188,7 +205,14 @@ def create_itinerary(state: AgentState) -> AgentState:
                 continue
 
             if active_tag is None:
-                active_tag = random.choice(list(prefer_activity_map.keys()))
+                preferred_tags = WEATHER_ACTIVITY_MAP.get(weather, list(prefer_activity_map.keys()))
+                random.shuffle(preferred_tags)
+                for tag in preferred_tags:
+                    if tag in prefer_activity_map:
+                        active_tag = tag
+                        break
+                if active_tag is None:
+                    active_tag = random.choice(list(prefer_activity_map.keys()))
 
             available_activities = prefer_activity_map.get(active_tag, [])
             if available_activities:
@@ -199,10 +223,10 @@ def create_itinerary(state: AgentState) -> AgentState:
                 del prefer_activity_map[active_tag]
                 active_tag = None
 
-        if len(activities) == 1 and day == duration:
+        if len(activities) == 2 and day == duration:
             activities.append(f'Pack up and depart')
 
-        days.append(dict(day=day, activities=activities))
+        days.append(dict(day=day, activities=activities, weather=weather))
 
     state.itinerary = {
         'destination': destination,

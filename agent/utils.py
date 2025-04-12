@@ -3,6 +3,8 @@ import traceback
 from copy import deepcopy
 from difflib import get_close_matches
 
+import requests
+
 from agent.state import AgentState
 
 
@@ -39,12 +41,59 @@ def handle_node_errors(func):
         original_state = deepcopy(state)
         try:
             return func(state)
-        except Exception as exc:
+        except Exception as node_exc:
             print(traceback.format_exc())
-            print(f"{exc=}")
+            print(f"{node_exc=}")
             state = original_state
             state.history.append({'role': 'Something went wrong at our end, try again later'})
             state.print_itinerary = False
             return state
 
     return helper
+
+
+def get_weather_forecast(city_name: str, days: int = 3) -> list[str]:
+    """
+    Fetch weather forecast using Open-Meteo API based on city name.
+    Uses simple city -> lat/lon lookup and gets daily conditions.
+    """
+    try:
+        # Step 1: Geocoding (city to lat/lon)
+        geo_url = "https://geocoding-api.open-meteo.com/v1/search"
+        geo_resp = requests.get(geo_url, params={"name": city_name, "count": 1})
+        geo_resp.raise_for_status()
+        geo_data = geo_resp.json()
+
+        if not geo_data.get("results"):
+            return ["Unknown"] * days
+
+        location = geo_data["results"][0]
+        lat, lon = location["latitude"], location["longitude"]
+
+        # Step 2: Get weather forecast
+        weather_url = "https://api.open-meteo.com/v1/forecast"
+        weather_params = {
+            "latitude": lat,
+            "longitude": lon,
+            "daily": "weathercode",
+            "forecast_days": days,
+            "timezone": "auto"
+        }
+
+        weather_resp = requests.get(weather_url, params=weather_params)
+        weather_resp.raise_for_status()
+        weather_data = weather_resp.json()
+
+        # Map weather codes to human-readable terms
+        code_map = {
+            0: "Clear", 1: "Mainly Clear", 2: "Partly Cloudy", 3: "Overcast",
+            45: "Foggy", 48: "Freezing Fog", 51: "Light Drizzle", 61: "Rain",
+            71: "Snow", 95: "Thunderstorm"
+        }
+
+        codes = weather_data["daily"]["weathercode"][:days]
+        return [code_map.get(code, "Unknown") for code in codes]
+
+    except Exception as weather_api_exc:
+        print(f"{weather_api_exc=}")
+        return ["Weather unavailable"] * days

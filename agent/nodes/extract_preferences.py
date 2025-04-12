@@ -133,15 +133,16 @@ def extract_preferences(state: AgentState) -> AgentState:
 
     msg = spell_checker(msg, INTEREST_TAGS)
     msg = spell_checker(msg, BUDGET_TAGS)
+    msg = spell_checker(msg, ['weekend', 'week'])
     msg_lst = msg.split(' ')
 
     # Fetch duration
     match_duration = re.search(r"(\d+)\s*-?\s*(day|days)", msg)
     if match_duration:
         duration = int(match_duration.group(1))
-    elif get_close_matches('weekend', msg_lst, n=1):
+    elif 'weekend' in msg:
         duration = 2
-    elif get_close_matches('week', msg_lst, n=1):
+    elif 'week' in msg:
         duration = 7
 
     # Fetch budget

@@ -16,7 +16,9 @@ SUCCESS_KWARGS = [
     "like it",
     "thank",
     "done",
-    "ok"
+    "ok",
+    "excellent",
+    "awesome",
 ]
 SHORT_TRIP_KWARGS = [
     "shorten",
@@ -124,17 +126,17 @@ def handle_followup(state: AgentState) -> AgentState:
 
     msg = spell_checker(msg, INTEREST_TAGS)
     msg = spell_checker(msg, BUDGET_TAGS)
-    msg_lst = msg.split(' ')
+    msg = spell_checker(msg, ['weekend', 'week'])
 
     duration = state.preferences.get('duration', 3)
     match_duration = re.search(r"(\d+)\s*-?\s*(day|days)", msg)
     if match_duration:
         state.preferences["duration"] = int(match_duration.group(1))
         is_update = True
-    elif get_close_matches('weekend', msg_lst, n=1):
+    elif 'weekend' in msg:
         state.preferences["duration"] = 2
         is_update = True
-    elif get_close_matches('week', msg_lst, n=1):
+    elif 'week' in msg:
         state.preferences["duration"] = 7
         is_update = True
     elif any(kw in msg for kw in SHORT_TRIP_KWARGS):
