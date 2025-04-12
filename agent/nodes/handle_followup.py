@@ -163,17 +163,21 @@ def handle_followup(state: AgentState) -> AgentState:
         state.history.append({'role': 'agent', 'message': random.choice(SUCCESS_AND_UPDATE_MESSAGES)})
         state.is_followup = False
         state.print_itinerary = True
+        state.terminate_program = False
     elif is_success:
         state.history.append({'role': 'agent', 'message': random.choice(SUCCESS_ONLY_MESSAGES)})
         state.is_followup = True
         state.print_itinerary = False
+        state.terminate_program = True
     elif is_update:
         state.history.append({'role': 'agent', 'message': random.choice(UPDATE_ONLY_MESSAGES)})
         state.is_followup = False
         state.print_itinerary = True
+        state.terminate_program = False
     else:
         state.history.append({'role': 'agent', 'message': random.choice(CLARIFY_MESSAGES)})
         state.is_followup = True
         state.print_itinerary = False
+        state.terminate_program = False
 
     return state

@@ -44,6 +44,10 @@ while user_input.lower() not in {"exit", "quit"}:
     if state.itinerary and state.print_itinerary:
         print_itinerary(state.itinerary)
 
+    # Terminate program if user conforms the trip
+    if state.terminate_program:
+        break
+
     # Get follow-up input
     user_input = input("🧍 You: ").strip()
 

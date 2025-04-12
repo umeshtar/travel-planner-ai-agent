@@ -17,6 +17,7 @@ class AgentState:
             history (list): A conversation history of user and agent messages.
             is_followup (bool): Flag to determine if the current input is a follow-up.
             print_itinerary (bool): Controls whether the itinerary should be printed in the CLI.
+            terminate_program (bool): Controls whether the Chat ends on user conformation in the CLI.
     """
     preferences: Dict[str, Any] = field(default_factory=dict)
     destinations: List[Dict[str, Any]] = field(default_factory=list)
@@ -25,6 +26,7 @@ class AgentState:
     history: List[Dict[str, str]] = field(default_factory=list)
     is_followup: Optional[bool] = False
     print_itinerary: Optional[bool] = True
+    terminate_program: Optional[bool] = False
 
 # Initial State
 # AgentState(
